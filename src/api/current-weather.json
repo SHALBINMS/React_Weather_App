@@ -1,0 +1,32 @@
+{
+    "lat": "33.55N",
+    "lon": "133.53333E",
+    "elevation": 58,
+    "timezone": "Asia/Tokyo",
+    "units": "metric",
+    "current": {
+        "icon": "overcast",
+        "icon_num": 7,
+        "summary": "Overcast",
+        "temperature": 16.2,
+        "feels_like": 14.5,
+        "wind_chill": 15.5,
+        "dew_point": 14.8,
+        "wind": {
+            "speed": 0,
+            "gusts": 5.7,
+            "angle": 332,
+            "dir": "NNW"
+        },
+        "precipitation": {
+            "total": 0,
+            "type": "none"
+        },
+        "cloud_cover": 98,
+        "ozone": 318.4,
+        "pressure": 1007,
+        "uv_index": 0,
+        "humidity": 90,
+        "visibility": 24.14
+    }
+}
