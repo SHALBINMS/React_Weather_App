@@ -1,6 +1,7 @@
 import HourlyForecastWidget from './HourlyForecastWidget';
 import DailyForecastWidget from './DailyForecastWidget';
 import '../styles/components/Forecast.scss';
+import HorizontallyScrollable from './HorizontallyScrollable';
 
 function Forecast({ title, type, data }) {
   if (!data || !Array.isArray(data)) {
@@ -11,7 +12,7 @@ function Forecast({ title, type, data }) {
     <div className='Forecast'>
       <div className='forecast-container'>
         <h3>{title}</h3>
-        <div className='widget-container'>
+        <HorizontallyScrollable className='widget-container'>
           {data.map((singleData, index) => (
             <div key={index}>
               {type === 'hourly' ? (
@@ -21,7 +22,7 @@ function Forecast({ title, type, data }) {
               )}
             </div>
           ))}
-        </div>
+        </HorizontallyScrollable>
       </div>
     </div>
   );
