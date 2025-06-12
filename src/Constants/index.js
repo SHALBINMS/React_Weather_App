@@ -9,3 +9,11 @@ lon:"133.53333E",
 timezone:"Asia/Tokyo",
 type:"settlement",
 };
+
+export const MEASUREMENT_SYSTEMS = {
+  AUTO: 'auto',
+  METRIC: 'metric',
+  UK: 'uk',
+  US: 'us',
+  CA: 'ca',
+};
