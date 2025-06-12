@@ -4,9 +4,10 @@ import '../styles/components/Forecast.scss';
 import HorizontallyScrollable from './HorizontallyScrollable';
 
 function Forecast({ title, type, data }) {
-  if (!data || !Array.isArray(data)) {
-    return <div className="Forecast">Loading...</div>;
-  }
+  if (!data || !Array.isArray(data) || data.length === 0) {
+  return <div className="Forecast">Loading...</div>;
+}
+
 
   return (
     <div className='Forecast'>

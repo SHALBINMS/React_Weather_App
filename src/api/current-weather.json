@@ -8,25 +8,25 @@
         "icon": "overcast",
         "icon_num": 7,
         "summary": "Overcast",
-        "temperature": 16.2,
-        "feels_like": 14.5,
-        "wind_chill": 15.5,
-        "dew_point": 14.8,
+        "temperature": 22.5,
+        "feels_like": 24.5,
+        "wind_chill": 23.5,
+        "dew_point": 21.8,
         "wind": {
-            "speed": 0,
-            "gusts": 5.7,
-            "angle": 332,
-            "dir": "NNW"
+            "speed": 0.1,
+            "gusts": 2.2,
+            "angle": 324,
+            "dir": "NW"
         },
         "precipitation": {
             "total": 0,
             "type": "none"
         },
-        "cloud_cover": 98,
-        "ozone": 318.4,
-        "pressure": 1007,
-        "uv_index": 0,
-        "humidity": 90,
-        "visibility": 24.14
+        "cloud_cover": 100,
+        "ozone": 293.23,
+        "pressure": 1016,
+        "uv_index": 0.73,
+        "humidity": 95,
+        "visibility": 12.04
     }
 }

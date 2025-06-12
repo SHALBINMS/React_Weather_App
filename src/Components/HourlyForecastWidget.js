@@ -1,8 +1,15 @@
 import WeatherIcon from "./WeatherIcon";
-function HourlyForecastWidget({ data }) {
 
-  const { date, icon, summary, temperature, precipitation, wind } = data;
-  //date format
+function HourlyForecastWidget({ data }) {
+  const {
+    date,
+    icon = 1,
+    summary = '',
+    temperature = 0,
+    precipitation = {},
+    wind = {},
+  } = data || {};
+
   const locale = navigator.language;
   const now_date = {
     day: new Intl.DateTimeFormat(locale, {
@@ -15,6 +22,7 @@ function HourlyForecastWidget({ data }) {
       minute: '2-digit',
     }).format(new Date().setMinutes(0)),
   };
+
   const weather_date = {
     day: new Intl.DateTimeFormat(locale, {
       weekday: 'short',
@@ -26,23 +34,18 @@ function HourlyForecastWidget({ data }) {
       minute: '2-digit',
     }).format(new Date(date).setMinutes(0)),
   };
- const midnightTime = new Intl.DateTimeFormat(locale, {
-  hour: '2-digit',
-  minute: '2-digit',
-}).format(new Date(new Date().setHours(0, 0, 0, 0)));
 
+  const midnightTime = new Intl.DateTimeFormat(locale, {
+    hour: '2-digit',
+    minute: '2-digit',
+  }).format(new Date(new Date().setHours(0, 0, 0, 0)));
 
- 
-  let displayDate=' '
-   if( weather_date.day === now_date.day &&
-    weather_date.time === now_date.time)
-      { displayDate='Now'}
-
-      else if( weather_date.time === midnightTime)
-      {displayDate=weather_date.day}
-      
-    
-
+  let displayDate = ' ';
+  if (weather_date.day === now_date.day && weather_date.time === now_date.time) {
+    displayDate = 'Now';
+  } else if (weather_date.time === midnightTime) {
+    displayDate = weather_date.day;
+  }
 
   return (
     <div className="widget">
@@ -52,26 +55,24 @@ function HourlyForecastWidget({ data }) {
         <div className="icon">
           <WeatherIcon icon_num={icon} summary={summary} />
         </div>
-        <div className="temperature">
-          {Math.round(temperature)}°C
-        </div>
+        <div className="temperature">{Math.round(temperature)}°C</div>
         <div className='precipitation'>
-          {Math.round(precipitation.total)} mm
+          {Math.round(precipitation?.total ?? 0)} mm
         </div>
-         <div className='wind'>
-        <div className='speed'>
-          {Math.round(wind.speed)} km/h
+        <div className='wind'>
+          <div className='speed'>
+            {Math.round(wind?.speed ?? 0)} km/h
+          </div>
+          <div
+            className='dir'
+            style={{ transform: `rotate(${-45 + (wind?.angle ?? 0)}deg)` }}
+          >
+            <i className='bi bi-send-fill'></i>
+          </div>
         </div>
-        <div
-          className='dir'
-          style={{ transform: `rotate(${-45 + wind.angle}deg)` }}
-        >
-          <i className='bi bi-send-fill'></i>
-        </div>
-      </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default HourlyForecastWidget
+export default HourlyForecastWidget;
